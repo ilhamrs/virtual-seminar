@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     PhotonView view;
 
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
         view = GetComponent<PhotonView>();
@@ -85,6 +87,15 @@ public class PlayerController : MonoBehaviour
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
             }
+
+            //if (curSpeedX != 0)
+            //{
+            //    animator.SetBool("isWalk", true);
+            //}
+            //else
+            //{
+            //    animator.SetBool("isWalk", false);
+            //}
         }
 
         
