@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
@@ -96,8 +97,25 @@ public class PlayerController : MonoBehaviour
             //{
             //    animator.SetBool("isWalk", false);
             //}
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OnLeftRoom();
+            }
+
+
         }
 
-        
+
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("MainMenu");
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("MainMenu");
+        //Destroy(this.gameObject);
+        //PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
     }
 }
