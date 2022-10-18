@@ -872,6 +872,8 @@ MonoBehaviour:
   playerCamera: {fileID: 1937341332606241774}
   lookSpeed: 2
   lookXLimit: 45
+  timeExit: 3
+  timer: 0
   canMove: 1
   animator: {fileID: 6050908355301975283}
 --- !u!143 &6050908355301975182
